@@ -1,0 +1,11 @@
+2025-09-26 18:32:43,312 | INFO     | src.data_loader | load_data | Carregando dados de 'dadosOriginais (2).xlsx'
+2025-09-26 18:33:05,323 | INFO     | src.data_loader | load_data | Dados carregados com sucesso. Shape: (44758, 15)
+2025-09-26 18:33:05,324 | ERROR    | src.data_loader | load_data | Erro inesperado ao carregar os dados: Colunas essenciais faltantes no arquivo: ['Ano Lancamento', 'Movim. Liquido - R$_destino']
+2025-09-26 18:33:05,325 | CRITICAL | src.utils | run_pipeline | Ocorreu um erro critico no pipeline: Colunas essenciais faltantes no arquivo: ['Ano Lancamento', 'Movim. Liquido - R$_destino']
+Traceback (most recent call last):
+  File "C:\Users\geova\OneDrive\Área de Trabalho\projects\RandomForestUniversities\main.py", line 24, in run_pipeline
+    df_raw = load_data(settings.DATA_FILE_PATH, required_cols)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\geova\OneDrive\Área de Trabalho\projects\RandomForestUniversities\src\data_loader.py", line 22, in load_data
+    raise ValueError(f"Colunas essenciais faltantes no arquivo: {missing_cols}")
+ValueError: Colunas essenciais faltantes no arquivo: ['Ano Lancamento', 'Movim. Liquido - R$_destino']

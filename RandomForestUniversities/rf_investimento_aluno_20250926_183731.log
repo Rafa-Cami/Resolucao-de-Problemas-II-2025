@@ -1,0 +1,10 @@
+2025-09-26 18:37:36,180 | INFO     | src.data_loader | load_data | Carregando dados de 'dadosOriginais (2).xlsx'
+2025-09-26 18:37:51,468 | INFO     | src.data_loader | load_data | Dados carregados com sucesso. Shape: (44758, 15)
+2025-09-26 18:37:51,468 | INFO     | src.data_preprocessor | preprocess_data | Iniciando pre-processamento basico dos dados.
+2025-09-26 18:37:51,483 | INFO     | src.data_preprocessor | preprocess_data | 11858 linhas removidas por valores nulos em colunas chave.
+2025-09-26 18:37:51,483 | WARNING  | src.data_preprocessor | preprocess_data | Encontrados 32 registros com quantidade de alunos <= 0. Corrigindo para 1.
+2025-09-26 18:37:51,486 | INFO     | src.data_preprocessor | preprocess_data | Pre-processamento concluido. Shape final: (32900, 15)
+2025-09-26 18:37:51,486 | INFO     | src.feature_engineer | create_features | Iniciando engenharia de features.
+2025-09-26 18:37:51,652 | INFO     | src.feature_engineer | create_features | Engenharia de features concluida. Shape final: (32900, 25)
+2025-09-26 18:37:51,668 | INFO     | src.model_trainer | train | Iniciando treinamento do modelo Random Forest.
+2025-09-26 18:37:51,687 | INFO     | src.model_trainer | _tune_and_fit | Otimizando hiperparametros com GridSearchCV...
