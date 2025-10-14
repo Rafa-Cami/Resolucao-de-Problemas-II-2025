@@ -1,17 +1,17 @@
 ================================================================================
 ANÁLISE DE OUTLIERS EM DADOS FINANCEIROS DE UNIVERSIDADES BRASILEIRAS
 Período: 2017-2024 | Foco: Impacto da Pandemia de COVID-19
-Data da análise: 12/10/2025 15:26:17
+Data da análise: 13/10/2025 21:14:12
 ================================================================================
 
 1. CARREGAMENTO E PRÉ-PROCESSAMENTO DOS DADOS
 Primeiras linhas dos dados:
-   Ano Lançamento Mês Base Lançamento  ...       Período Quantidade Alunos
-0            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
-1            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
-2            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
-3            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
-4            2017             JANEIRO  ...  PRÉ-PANDEMIA              5504
+   Ano Lançamento Mês Base Lançamento       UO - Órgão Máximo  ... Movim. Líquido - R$_destino       Período Quantidade Alunos
+0            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                    27940.00  PRÉ-PANDEMIA              6036
+1            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                   102400.13  PRÉ-PANDEMIA              6036
+2            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                   280489.35  PRÉ-PANDEMIA              6036
+3            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                    80512.89  PRÉ-PANDEMIA              6036
+4            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                   756969.64  PRÉ-PANDEMIA              5504
 
 [5 rows x 15 columns]
 
@@ -44,7 +44,7 @@ Universidade Federal de Rondonópolis excluída da análise
 
 2. CÁLCULO DO INVESTIMENTO POR ALUNO
 Dataset após agrupamento: (442, 8)
-Anos disponíveis: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+Anos disponíveis: [np.int64(2017), np.int64(2018), np.int64(2019), np.int64(2020), np.int64(2021), np.int64(2022), np.int64(2023), np.int64(2024)]
 
 3. PREPARAÇÃO PARA DETECÇÃO DE OUTLIERS
 Formato da tabela pivot: (56, 8)

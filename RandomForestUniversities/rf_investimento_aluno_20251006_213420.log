@@ -1,0 +1,36 @@
+2025-10-06 21:34:55,612 | INFO     | src.data_loader | load_data | Carregando dados de 'dadosOriginais (2).xlsx'
+2025-10-06 21:35:20,849 | INFO     | src.data_loader | load_data | Dados carregados com sucesso. Shape: (44758, 15)
+2025-10-06 21:35:20,862 | INFO     | src.data_preprocessor | preprocess_data | Iniciando pre-processamento basico dos dados.
+2025-10-06 21:35:20,933 | INFO     | src.data_preprocessor | preprocess_data | 11858 linhas removidas por valores nulos em colunas chave.
+2025-10-06 21:35:20,937 | WARNING  | src.data_preprocessor | preprocess_data | Encontrados 32 registros com quantidade de alunos <= 0. Corrigindo para 1.
+2025-10-06 21:35:20,962 | INFO     | src.data_preprocessor | preprocess_data | Pre-processamento concluido. Shape final: (32900, 15)
+2025-10-06 21:35:20,964 | INFO     | src.feature_engineer | create_features | Iniciando engenharia de features.
+2025-10-06 21:35:21,302 | INFO     | src.feature_engineer | create_features | Engenharia de features concluida. Shape final: (32900, 25)
+2025-10-06 21:35:21,324 | INFO     | src.model_trainer | train | Iniciando treinamento do modelo Random Forest.
+2025-10-06 21:35:21,354 | INFO     | src.model_trainer | _tune_and_fit | Otimizando hiperparametros com GridSearchCV...
+2025-10-06 21:40:49,883 | INFO     | src.model_trainer | _tune_and_fit | Melhores hiperparametros encontrados: {'max_depth': 15, 'max_features': 'log2', 'min_samples_leaf': 4, 'min_samples_split': 10, 'n_estimators': 100}
+2025-10-06 21:40:49,952 | INFO     | src.model_trainer | _log_metrics | [PERFORMANCE DO MODELO]
+2025-10-06 21:40:49,960 | INFO     | src.model_trainer | _log_metrics | R Score: 0.4203
+2025-10-06 21:40:49,960 | INFO     | src.model_trainer | _log_metrics | RMSE (Erro medio por aluno): R$ 4108.71
+2025-10-06 21:40:49,960 | INFO     | src.model_trainer | _log_metrics | MAE (Erro absoluto medio por aluno): R$ 144.55
+2025-10-06 21:40:49,960 | INFO     | src.model_trainer | _log_metrics | MAPE (Erro percentual medio): 1391132342.01%
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | [TOP 10 FEATURES MAIS IMPORTANTES]
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Alunos_Ano_Interaction: 0.2305
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Log_Quantidade_Alunos: 0.2005
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - LogAlunos_Ano_Interaction: 0.1876
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Sqrt_Quantidade_Alunos: 0.1751
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Quantidade Alunos: 0.1382
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - UF - desc_encoded: 0.0676
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Programa Governo_encoded: 0.0002
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Ano_Quadratico: 0.0001
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Ano_Lancamento: 0.0001
+2025-10-06 21:40:50,001 | INFO     | src.model_trainer | _capture_feature_importance | - Tendencia_Temporal: 0.0001
+2025-10-06 21:40:50,140 | INFO     | src.model_analyzer | generate_summary_plot | Gerando dashboard de visualizacao do modelo.
+2025-10-06 21:40:57,671 | INFO     | src.model_analyzer | generate_summary_plot | Graficos salvos em: rf_investimento_aluno_analysis_20251006_213420.png
+2025-10-06 21:40:57,749 | INFO     | src.model_trainer | save_model | Modelo e artefatos salvos em: rf_model_investimento_aluno_20251006_213420.pkl
+2025-10-06 21:40:57,755 | INFO     | src.utils | generate_final_report | 
+================================================================================
+RELATORIO FINAL
+================================================================================
+2025-10-06 21:40:57,755 | INFO     | src.utils | generate_final_report | 
+Pipeline executado com sucesso!
