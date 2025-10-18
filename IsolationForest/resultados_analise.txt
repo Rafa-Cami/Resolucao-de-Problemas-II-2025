@@ -1,7 +1,7 @@
 ================================================================================
 ANÁLISE DE OUTLIERS EM DADOS FINANCEIROS DE UNIVERSIDADES BRASILEIRAS
 Período: 2017-2024 | Foco: Impacto da Pandemia de COVID-19
-Data da análise: 13/10/2025 21:14:12
+Data da análise: 15/10/2025 19:38:17
 ================================================================================
 
 1. CARREGAMENTO E PRÉ-PROCESSAMENTO DOS DADOS

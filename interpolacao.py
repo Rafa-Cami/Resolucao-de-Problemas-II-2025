@@ -2,8 +2,8 @@ import pandas as pd
 
 # Exemplo de dados (você pode substituir pelos seus)
 dados = {
-    "ano": [2017, 2020, 2021, 2022, 2024],
-    "valor": [1299, 1265, 652, 1265, 1300]  # variável qualquer
+    "ano": [2017, 2018, 2019, 2023, 2024],
+    "valor": [868, 1265, 652, 1265, 1300]  # variável qualquer
 }
 
 df = pd.DataFrame(dados)
