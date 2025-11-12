@@ -82,8 +82,8 @@ investimento_agrupado = df_clean.groupby(['Unidade Orçamentária', 'Ano Lançam
     'Movim. Líquido - R$_destino': 'sum',
     'Quantidade Alunos': 'first',
     'Período': 'first',
-    'UF - desc': 'first',
-    'Região PT': 'first'
+    # 'UF - desc': 'first',
+    # 'Região PT': 'first'
 }).reset_index()
 
 # Calcular investimento por aluno

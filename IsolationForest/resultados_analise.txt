@@ -1,7 +1,7 @@
 ================================================================================
 ANÁLISE DE OUTLIERS EM DADOS FINANCEIROS DE UNIVERSIDADES BRASILEIRAS
 Período: 2017-2024 | Foco: Impacto da Pandemia de COVID-19
-Data da análise: 12/11/2025 16:58:57
+Data da análise: 12/11/2025 17:08:35
 ================================================================================
 
 1. CARREGAMENTO E PRÉ-PROCESSAMENTO DOS DADOS
@@ -43,7 +43,7 @@ Universidades depois do filtro: 56
 Universidade Federal de Rondonópolis excluída da análise
 
 2. CÁLCULO DO INVESTIMENTO POR ALUNO
-Dataset após agrupamento: (442, 8)
+Dataset após agrupamento: (442, 6)
 Anos disponíveis: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
 
 3. PREPARAÇÃO PARA DETECÇÃO DE OUTLIERS
