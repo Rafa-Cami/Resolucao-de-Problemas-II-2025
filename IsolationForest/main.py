@@ -166,7 +166,7 @@ plt.xlabel('Classificação')
 plt.ylabel('Número de Universidades')
 plt.savefig('figuras/distribuicao_outliers.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Figura 1 salva: distribuicao_outliers.png")
+# print("✓ Figura 1 salva: distribuicao_outliers.png")
 
 # Figura 2: Evolução temporal do investimento por aluno
 plt.figure(figsize=(14, 8))
@@ -193,7 +193,7 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig('figuras/evolucao_investimento.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Figura 2 salva: evolucao_investimento.png")
+# print("✓ Figura 2 salva: evolucao_investimento.png")
 
 # Figura 3: Heatmap do investimento por aluno (apenas outliers)
 plt.figure(figsize=(12, 8))
@@ -212,7 +212,7 @@ plt.ylabel('Universidade')
 plt.tight_layout()
 plt.savefig('figuras/heatmap_outliers.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Figura 3 salva: heatmap_outliers.png")
+# print("✓ Figura 3 salva: heatmap_outliers.png")
 
 # Figura 4: Boxplot do investimento por aluno por período
 plt.figure(figsize=(12, 6))
@@ -224,7 +224,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig('figuras/boxplot_periodos.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Figura 4 salva: boxplot_periodos.png")
+# print("✓ Figura 4 salva: boxplot_periodos.png")
 
 # 7. ANÁLISE ESTATÍSTICA DETALHADA
 
@@ -275,6 +275,57 @@ for i, university in enumerate(outliers_df.index, 1):
     print(f"Investimento por ano:")
     for _, row in uni_data.iterrows():
         print(f"  {row['Ano Lançamento']}: R$ {row['Investimento_por_Aluno']:,.2f}")
+
+# 9. COMPARAÇÃO MÉDIA NORMAIS / OUTLIERS
+
+print(f"\n9. COMPARAÇÃO MÉDIA NORMAIS / OUTLIERS")
+
+# Calcular médias gerais das universidades normais
+normais = investimento_agrupado[investimento_agrupado['Unidade Orçamentária'].isin(
+    pivot_table[pivot_table['Is_Outlier'] == 'Normal'].index
+)]
+
+media_normais = (
+    normais.groupby('Período')['Investimento_por_Aluno']
+    .mean()
+    .reindex(['PRÉ-PANDEMIA', 'PANDEMIA', 'PÓS-PANDEMIA'])
+)
+
+print("\n=== MÉDIA DE INVESTIMENTO DAS UNIVERSIDADES NORMAIS ===")
+for periodo, valor in media_normais.items():
+    print(f"{periodo}: R$ {valor:,.2f}")
+
+# Para cada outlier, analisar seu comportamento
+print(f"\n=== COMPORTAMENTO DETALHADO DE CADA OUTLIER ===")
+for i, university in enumerate(outliers_df.index, 1):
+    uni_data = investimento_agrupado[investimento_agrupado['Unidade Orçamentária'] == university]
+    print(f"\n--- {i}. {university} ---")
+    print(f"Classificação: OUTLIER")
+    
+    # Calcular médias por período
+    pre_pandemic = uni_data[uni_data['Período'] == 'PRÉ-PANDEMIA']['Investimento_por_Aluno'].mean()
+    pandemic = uni_data[uni_data['Período'] == 'PANDEMIA']['Investimento_por_Aluno'].mean()
+    post_pandemic = uni_data[uni_data['Período'] == 'PÓS-PANDEMIA']['Investimento_por_Aluno'].mean()
+    
+    print(f"Médias de investimento:")
+    print(f"  PRÉ-PANDEMIA : R$ {pre_pandemic:,.2f}")
+    print(f"  PANDEMIA     : R$ {pandemic:,.2f}")
+    print(f"  PÓS-PANDEMIA : R$ {post_pandemic:,.2f}")
+    
+    # Calcular variações percentuais
+    if not np.isnan(pre_pandemic) and not np.isnan(pandemic) and pre_pandemic > 0:
+        variation_pandemic = ((pandemic - pre_pandemic) / pre_pandemic) * 100
+        print(f"Variação PRÉ → PANDEMIA: {variation_pandemic:+.2f}%")
+    
+    if not np.isnan(pandemic) and not np.isnan(post_pandemic) and pandemic > 0:
+        variation_post = ((post_pandemic - pandemic) / pandemic) * 100
+        print(f"Variação PANDEMIA → PÓS: {variation_post:+.2f}%")
+    
+    # Mostrar investimento por ano
+    print(f"Investimento por ano:")
+    for _, row in uni_data.iterrows():
+        print(f"  {row['Ano Lançamento']}: R$ {row['Investimento_por_Aluno']:,.2f}")
+
 
 # Criar DataFrame com resultados completos
 resultados_completos = pivot_table.reset_index()

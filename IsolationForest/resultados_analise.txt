@@ -1,17 +1,17 @@
 ================================================================================
 ANÁLISE DE OUTLIERS EM DADOS FINANCEIROS DE UNIVERSIDADES BRASILEIRAS
 Período: 2017-2024 | Foco: Impacto da Pandemia de COVID-19
-Data da análise: 15/10/2025 19:38:17
+Data da análise: 12/11/2025 16:58:57
 ================================================================================
 
 1. CARREGAMENTO E PRÉ-PROCESSAMENTO DOS DADOS
 Primeiras linhas dos dados:
-   Ano Lançamento Mês Base Lançamento       UO - Órgão Máximo  ... Movim. Líquido - R$_destino       Período Quantidade Alunos
-0            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                    27940.00  PRÉ-PANDEMIA              6036
-1            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                   102400.13  PRÉ-PANDEMIA              6036
-2            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                   280489.35  PRÉ-PANDEMIA              6036
-3            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                    80512.89  PRÉ-PANDEMIA              6036
-4            2017             JANEIRO  MINISTERIO DA EDUCACAO  ...                   756969.64  PRÉ-PANDEMIA              5504
+   Ano Lançamento Mês Base Lançamento  ...       Período Quantidade Alunos
+0            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
+1            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
+2            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
+3            2017             JANEIRO  ...  PRÉ-PANDEMIA              6036
+4            2017             JANEIRO  ...  PRÉ-PANDEMIA              5504
 
 [5 rows x 15 columns]
 
@@ -44,7 +44,7 @@ Universidade Federal de Rondonópolis excluída da análise
 
 2. CÁLCULO DO INVESTIMENTO POR ALUNO
 Dataset após agrupamento: (442, 8)
-Anos disponíveis: [np.int64(2017), np.int64(2018), np.int64(2019), np.int64(2020), np.int64(2021), np.int64(2022), np.int64(2023), np.int64(2024)]
+Anos disponíveis: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
 
 3. PREPARAÇÃO PARA DETECÇÃO DE OUTLIERS
 Formato da tabela pivot: (56, 8)
@@ -68,10 +68,6 @@ Taxa de outliers: 10.71%
  6. UNIVERSIDADE FEDERAL DO SUL DA BAHIA
 
 6. GERAÇÃO DE VISUALIZAÇÕES
-✓ Figura 1 salva: distribuicao_outliers.png
-✓ Figura 2 salva: evolucao_investimento.png
-✓ Figura 3 salva: heatmap_outliers.png
-✓ Figura 4 salva: boxplot_periodos.png
 
 7. ANÁLISE ESTATÍSTICA DETALHADA
 
@@ -183,6 +179,123 @@ Investimento por ano:
 Classificação: OUTLIER
 Variação PRÉ-PANDEMIA → PANDEMIA: -35.45%
 Variação PANDEMIA → PÓS-PANDEMIA: +2.88%
+Investimento por ano:
+  2017: R$ 10,106.23
+  2018: R$ 25,599.65
+  2019: R$ 8,034.69
+  2020: R$ 4,767.47
+  2021: R$ 14,056.33
+  2022: R$ 18,894.95
+  2023: R$ 4,029.88
+  2024: R$ 6,124.61
+
+9. COMPARAÇÃO MÉDIA NORMAIS / OUTLIERS
+
+=== MÉDIA DE INVESTIMENTO DAS UNIVERSIDADES NORMAIS ===
+PRÉ-PANDEMIA: R$ 2,154.08
+PANDEMIA: R$ 1,441.88
+PÓS-PANDEMIA: R$ 1,631.54
+
+=== COMPORTAMENTO DETALHADO DE CADA OUTLIER ===
+
+--- 1. FUN.UNIV.FED.DE CIENCIAS DA SAUDE DE P.ALEGRE ---
+Classificação: OUTLIER
+Médias de investimento:
+  PRÉ-PANDEMIA : R$ 2,029.37
+  PANDEMIA     : R$ 7,417.35
+  PÓS-PANDEMIA : R$ 4,549.20
+Variação PRÉ → PANDEMIA: +265.50%
+Variação PANDEMIA → PÓS: -38.67%
+Investimento por ano:
+  2017: R$ 2,364.68
+  2018: R$ 1,875.06
+  2019: R$ 1,848.39
+  2020: R$ 4,420.69
+  2021: R$ 10,414.02
+  2022: R$ 11,991.08
+  2023: R$ 819.30
+  2024: R$ 837.22
+
+--- 2. UNIVERS. FEDERAL DA INTEG. LATINO AMERICANA ---
+Classificação: OUTLIER
+Médias de investimento:
+  PRÉ-PANDEMIA : R$ 15,046.11
+  PANDEMIA     : R$ 7,743.58
+  PÓS-PANDEMIA : R$ 12,982.47
+Variação PRÉ → PANDEMIA: -48.53%
+Variação PANDEMIA → PÓS: +67.65%
+Investimento por ano:
+  2017: R$ 23,721.95
+  2018: R$ 15,486.19
+  2019: R$ 5,930.20
+  2020: R$ 8,404.25
+  2021: R$ 7,082.91
+  2022: R$ 19,803.25
+  2023: R$ 6,319.65
+  2024: R$ 12,824.52
+
+--- 3. UNIVERSIDADE FEDERAL DA BAHIA ---
+Classificação: OUTLIER
+Médias de investimento:
+  PRÉ-PANDEMIA : R$ 13,369.58
+  PANDEMIA     : R$ 4,841.68
+  PÓS-PANDEMIA : R$ 3,716.98
+Variação PRÉ → PANDEMIA: -63.79%
+Variação PANDEMIA → PÓS: -23.23%
+Investimento por ano:
+  2017: R$ 14,069.47
+  2018: R$ 16,532.14
+  2019: R$ 9,507.13
+  2020: R$ 4,906.56
+  2021: R$ 4,776.80
+  2022: R$ 1,692.78
+  2023: R$ 8,143.83
+  2024: R$ 1,314.32
+
+--- 4. UNIVERSIDADE FEDERAL DA FRONTEIRA SUL ---
+Classificação: OUTLIER
+Médias de investimento:
+  PRÉ-PANDEMIA : R$ 8,256.65
+  PANDEMIA     : R$ 8,230.95
+  PÓS-PANDEMIA : R$ 5,915.29
+Variação PRÉ → PANDEMIA: -0.31%
+Variação PANDEMIA → PÓS: -28.13%
+Investimento por ano:
+  2017: R$ 12,468.87
+  2018: R$ 7,576.57
+  2019: R$ 4,724.49
+  2020: R$ 8,732.11
+  2021: R$ 7,729.78
+  2022: R$ 6,406.22
+  2023: R$ 6,246.92
+  2024: R$ 5,092.74
+
+--- 5. UNIVERSIDADE FEDERAL DE SAO PAULO ---
+Classificação: OUTLIER
+Médias de investimento:
+  PRÉ-PANDEMIA : R$ 9,923.66
+  PANDEMIA     : R$ 7,734.10
+  PÓS-PANDEMIA : R$ 10,536.02
+Variação PRÉ → PANDEMIA: -22.06%
+Variação PANDEMIA → PÓS: +36.23%
+Investimento por ano:
+  2017: R$ 12,840.73
+  2018: R$ 10,794.26
+  2019: R$ 6,136.00
+  2020: R$ 8,480.84
+  2021: R$ 6,987.36
+  2022: R$ 9,216.27
+  2023: R$ 15,132.36
+  2024: R$ 7,259.42
+
+--- 6. UNIVERSIDADE FEDERAL DO SUL DA BAHIA ---
+Classificação: OUTLIER
+Médias de investimento:
+  PRÉ-PANDEMIA : R$ 14,580.19
+  PANDEMIA     : R$ 9,411.90
+  PÓS-PANDEMIA : R$ 9,683.15
+Variação PRÉ → PANDEMIA: -35.45%
+Variação PANDEMIA → PÓS: +2.88%
 Investimento por ano:
   2017: R$ 10,106.23
   2018: R$ 25,599.65
